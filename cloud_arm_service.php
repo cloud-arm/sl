@@ -103,7 +103,7 @@ include_once("sidebar.php");
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input type="hidden" name="cus_id" value="5">
+                                            <input type="hidden" name="cus_id" value="15">
                                             <input type="hidden" name="user_id"
                                                 value="<?php echo $_SESSION['SESS_MEMBER_ID'];?>">
                                             <input type="hidden" name="user_name"
@@ -140,7 +140,7 @@ include_once("sidebar.php");
                        CURLOPT_FOLLOWLOCATION => true,
                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                        CURLOPT_CUSTOMREQUEST => 'POST',
-                       CURLOPT_POSTFIELDS => 'cus_id=5',
+                       CURLOPT_POSTFIELDS => 'cus_id=15',
                        CURLOPT_HTTPHEADER => array(
                          'Content-Type: application/x-www-form-urlencoded'
                        ),
