@@ -119,7 +119,7 @@ body {
 	  <div class="row">
         <!-- accepted payments column -->
         <div class="col-xs-6">
-        <img src="bill.jpg" width="145" alt="">
+        <img src="sl_logo.jpeg" width="145" alt="">
          <h5> <b>STARTUP Auto Care</b></h5>
          <p>52/B/1, 10th Mile Post,  <br>
 			Katuwawala,  <br>
