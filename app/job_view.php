@@ -86,13 +86,7 @@ for($i=0; $row1 = $result1->fetch(); $i++){
                 Job Note: <b style="color:#B6B6B6"><?php echo $note; ?></b> 
                 </td>
                 
-                <td width="30%"><a href="inspection.php?id=<?php echo $id; ?>">
-                        <div class="btn"
-                            style="background-color: #3A3939; border-radius: 5px;  margin: 10px; border:0px; color:#737373;">
-
-                            <i style="font-size: 18px;">Go inspection</i>
-                        </div>
-                    </a>
+                <td width="30%">
                 </td>
             </tr>
         </table>
@@ -103,60 +97,6 @@ for($i=0; $row1 = $result1->fetch(); $i++){
    
    
 
-    <?php 
-    $result = $db->prepare("SELECT *  FROM job_list  WHERE job_no='$id' ORDER BY id DESC");
-    $result->bindParam(':userid', $date);
-    $result->execute();
-    for($i=0; $row = $result->fetch(); $i++){
-    ?>
-    <div
-        style="border-radius: 15px; background-color: #181929; color:aliceblue;  margin: 10px; color:#959595; ">
-        <table width="100%" style="margin: 10px;">
-            <tr>
-                <td style="font-size: 22px;"><?php echo $row['name']; ?></td>
-                <td style="color:#585757; width:20%"><?php echo $row['note']; ?></td>
-                <td width="15%">
-                    <?php if($row['type']=="OK"){ ?>
-                    <span style="color:#009C28;" class="material-symbols-outlined">
-                        done
-                    </span>
-                    <?php } ?>
-
-                    <?php if($row['type']=="NO"){ ?>
-                    <span style="color:#BE0909" class="material-symbols-outlined">
-                        block
-                    </span>
-                    <?php } ?>
-
-                    <?php if($row['type']=="GOOD"){ ?>
-                    <span style="color:#009C28" class="material-symbols-outlined">
-                    thumb_up
-                    </span>
-                    <?php } ?>
-
-                    <?php if($row['type']=="BAD"){ ?>
-                    <span style="color:#BE0909" class="material-symbols-outlined">
-                    thumb_down
-                    </span>
-                    <?php } ?>
-
-                    <?php if($row['type']=="Replace"){ ?>
-                    <span style="color:#169886" class="material-symbols-outlined">
-                    swap_horiz
-                    </span>
-                    <?php } ?>
-
-                    <?php if($row['type']=="Clean"){ ?>
-                    <span style="color:#162298" class="material-symbols-outlined">
-                    mop
-                    </span>
-                    <?php } ?>
-                </td>
-            </tr>
-        </table>
-
-    </div>
-    <?php } ?>
 
 <br><br>
 <?php 
