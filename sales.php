@@ -256,8 +256,8 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                                     </table>
 
                                     <input type="hidden" id="d_tot" value="<?php echo $d_tot; ?>">
-         <input type="hidden" id="total" value="<?php echo $total; ?>">
-         <input type="hidden" id="adv" value="<?php echo $adv; ?>">
+                                    <input type="hidden" id="total" value="<?php echo $total; ?>">
+                                    <input type="hidden" id="adv" value="<?php echo $adv; ?>">
 
                                     <table align="right" cellpadding="0" cellspacing="0" border="0" width="30%">
                                         <tr>
@@ -280,10 +280,11 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                                         </tr>
                                     </table>
 
-                                    <h4>Total Rs <b><?php echo number_format($total,2); ?></b>  <br>
+                                    <h4>Total Rs <b><?php echo number_format($total,2); ?></b> <br>
                                         Advance Rs <b><?php echo number_format($adv,2); ?></b> <br>
                                         Discount Rs <b id="dis_view">0.00</b><br>
-                                        Balance Rs <b id="balance_view"><?php echo number_format($total-$adv,2); ?></b></h4>
+                                        Balance Rs <b id="balance_view"><?php echo number_format($total-$adv,2); ?></b>
+                                    </h4>
 
 
 
@@ -532,6 +533,7 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
 		}
 		
 		?>
+        
                         <form method="post" action="save_bill.php">
                             <div class="form-group">
 
@@ -591,31 +593,46 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                     <?php } ?>
 
                     <div class="col-md-3">
-                                <div class="input-group">
-                                <div class="input-group-addon">
-                                       <label >Discount</label>
-                                    </div>
-                                    <!-- /btn-group -->
-                                    <input type="number" onchange="dis_up()" class="form-control" name="dis" id="dis" step=".01">
-                                    <input type="hidden" name="discount" id="discount_value" value="0">
-                                    
-                                </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label>Discount</label>
                             </div>
-                   
+                            <!-- /btn-group -->
+                            <input type="number" onchange="dis_up()"  class="form-control" name="dis" id="dis"
+                                step=".01">
+                            
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                <label>Payment</label>
+                                </div>
+                                <input type="number" class="form-control" id="amount" name="amount" value="" step=".01"
+                                min="0">
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="discount" id="discount_value" value="0">
+
 
                     <div class="col-md-3">
                         <div class="input-group">
                             <!-- /btn-group -->
-                            <input type="number" class="form-control" id="amount" name="amount" value="" step=".01"
-                                min="0">
+                            
                             <div class="input-group-btn">
                                 <input type="hidden" class="form-control" name="total" value="<?php echo $total; ?>">
                                 <input type="hidden" class="form-control" name="invoice" value="<?php echo $invo; ?>">
-                                <input class="btn btn-info" type="submit" value="Pay and Print">
+                                
                             </div>
                         </div>
+                        <input class="btn btn-info" type="submit" value="Pay and Print">
                     </div>
-                   
+
                     </form>
 
 
@@ -689,6 +706,7 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                 </form>
             </div>
         </div>
+    </div>
     </div>
 
     <?php }	?>
