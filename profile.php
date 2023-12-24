@@ -193,8 +193,8 @@ include_once("sidebar.php");
 
 
 
-                                <?php
-                                       $result1 = $db->prepare("SELECT * FROM sales WHERE vehicle_no='$vehicle_no' ORDER by transaction_id DESC ");
+                                <?php 	$vid = $_GET['id'];
+                                       $result1 = $db->prepare("SELECT * FROM sales WHERE vehicle_id='$vid' ORDER by transaction_id DESC ");
 		                                   $result1->bindParam(':userid', $res);
 		                                   $result1->execute();
 		                                   for($i=0; $row = $result1->fetch(); $i++){
