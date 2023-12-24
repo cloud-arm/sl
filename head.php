@@ -112,7 +112,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 <script src="lib/jquery.js" type="text/javascript"></script>
 
-<script src="js/cloud_sync.js"></script>
+
 
 	
 </head>
