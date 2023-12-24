@@ -294,7 +294,7 @@ body {
             </div> 
 <center>
 <div class="container">
-  <img src="img/bill car.svg" class="car-img" alt="Snow" style="width:40%;">
+ 
   <div class="bottom-left">
 	<?php $result1 = $db->prepare("SELECT * FROM job_list WHERE   ins_id='45' AND job_no='$job_no' ");		
 		$result1->bindParam(':userid', $date);
@@ -333,7 +333,7 @@ body {
   </section>
   <?php
 $sec = "1";
-?><meta http-equiv="refresh" content="<?php echo $sec;?>;URL='sales_rp.phpd1=<?php echo date('Y-m-d') ?>&d2=<?php echo date('Y-m-d'); ?>">
+?><meta http-equiv="refresh" content="<?php echo $sec;?>;URL='sales_rp.php?d1=<?php echo date('Y-m-d') ?>&d2=<?php echo date('Y-m-d'); ?>">
 </div>
 </body>
 </html>
