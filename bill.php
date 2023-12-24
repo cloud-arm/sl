@@ -120,13 +120,13 @@ body {
         <!-- accepted payments column -->
         <div class="col-xs-6">
         <img src="sl_logo.jpeg" width="145" alt="">
-         <h5> <b>STARTUP Auto Care</b></h5>
-         <p>52/B/1, 10th Mile Post,  <br>
-			Katuwawala,  <br>
-			Boralasgauwa <BR>
+         <h5> <b>S & L Auto Care</b></h5>
+         <p>7/7 Thambiligasmulla Junction, <br>
+         Dewala Road, Makola North. <br>
+		
          <br>
-         Call: 0112 150 400<br>
-         E-mail: startupautoare@gmail.com<br><br>
+         Phone: 0114422699, Mobile: 0773700499<br>
+         Email: billing@sandlimporters.com<br><br>
          Bill To:<br>
          <?php echo $cus_name; ?>
 
