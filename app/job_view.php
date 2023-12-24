@@ -72,9 +72,10 @@ for($i=0; $row1 = $result1->fetch(); $i++){ $model_name=$row1['model']; }
 $result1 = $db->prepare("SELECT *  FROM model  WHERE name='$model_name' ORDER BY id ASC LIMIT 1");
 $result1->bindParam(':userid', $date);
 $result1->execute();
-for($i=0; $row1 = $result1->fetch(); $i++){ 
+for($i=0; $row1 = $result1->fetch(); $i++){  $path=$row1['parth'];
+    if($path==' '){ $path='../AUTO_LOGO.png';}
 ?>
-    <center><img src="../<?php echo $row1['parth']; ?>" width="300px"></center>
+    <center><img src="../<?php echo $path; ?>" width="300px"></center>
     <?php } ?>
 
     <br><br><br>
