@@ -73,7 +73,7 @@ $result1 = $db->prepare("SELECT *  FROM model  WHERE name='$model_name' ORDER BY
 $result1->bindParam(':userid', $date);
 $result1->execute();
 for($i=0; $row1 = $result1->fetch(); $i++){  $path=$row1['parth'];
-    if($path==' '){ $path='../AUTO_LOGO.png';}
+    if($path==''){ $path='../AUTO_LOGO.png';}
 ?>
     <center><img src="../<?php echo $path; ?>" width="300px"></center>
     <?php } ?>
