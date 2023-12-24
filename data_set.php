@@ -9,7 +9,7 @@ $result1 = $db->prepare("SELECT * FROM sales JOIN vehicle ON vehicle.customer_id
 		$invo=$row1['transaction_id '];
 		$cus_id=$row1['id'];
 		
-	echo $cus_id.'--<br>';	
+	echo $cus_id.'__'.$invo.'<br>';	
 
 			
 $sql = "UPDATE sales 
