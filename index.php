@@ -548,7 +548,7 @@ $tm=$ttime2->i;
                                         <tr>
 
                                             <?php }else{ ?>
-                                        <tr class="alert alert-general record" style="background-color:#38394D">
+                                        <tr class="alert alert-general record" style="background-color:brown">
                                             <?php } ?>
 
                                             <td><?php echo $job_no;?><span class="badge bg-<?php echo $type_color;?>"><i
@@ -640,7 +640,7 @@ $tm=$ttime2->i;
 					  
 					  ?>
 
-                                        <tr class="alert alert-general record" style="background-color:#ebebed">
+                                        <tr class="alert alert-general record" style="background-color:#38394D">
                                             <td><span class="badge bg-<?php echo $type_color1;?>"><i
                                                         class="fa fa-clock-o"></i> <?php echo $type_info1;?></span></td>
                                             <td><?php echo $row['vehicle_no'];?></td>
