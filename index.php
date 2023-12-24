@@ -548,7 +548,7 @@ $tm=$ttime2->i;
                                         <tr>
 
                                             <?php }else{ ?>
-                                        <tr class="alert alert-general record" style="background-color:brown">
+                                        <tr class="alert alert-general record" style="background-color:#38394D">
                                             <?php } ?>
 
                                             <td><?php echo $job_no;?><span class="badge bg-<?php echo $type_color;?>"><i
