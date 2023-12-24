@@ -15,8 +15,8 @@ $result1 = $db->prepare("SELECT * FROM sales_temp JOIN customer ON sales_temp.cu
 $sql = "UPDATE sales 
         SET customer_id=? 
 		WHERE invoice_number=?";
-// $q = $db->prepare($sql);
-// $q->execute(array($cus_id,$invo));		
+$q = $db->prepare($sql);
+$q->execute(array($cus_id,$invo));		
 		
 		}
 
