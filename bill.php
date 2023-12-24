@@ -333,7 +333,7 @@ body {
   </section>
   <?php
 $sec = "1";
-?><meta http-equiv="refresh" content="<?php echo $sec;?>;<?php if($email==1){echo "URL='email_invoice/email.php?id=".$invo."'";}else{echo "URL='inspection_print.php?id=".$invo."'";} ?>">
+?><meta http-equiv="refresh" content="<?php echo $sec;?>;URL='sales_rp.phpd1=<?php echo date('Y-m-d') ?>&d2=<?php echo date('Y-m-d'); ?>">
 </div>
 </body>
 </html>
