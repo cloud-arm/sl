@@ -11,7 +11,10 @@ $id= $_POST['id'];
 $email=$_POST['email'];
 $address=$_POST['address'];
 $model_id=$_POST['model'];
-
+$year=$_POST['year'];
+$transmission=$_POST['transmission'];
+$fuel=$_POST['fuel'];
+$chassis_no=$_POST['chassis_no'];
 $cus_id=$_POST['cus_id'];
 
 
@@ -30,10 +33,10 @@ $q->execute(array($a,$address,$email,$phone,$cus_id));
 
 
 $sql = "UPDATE vehicle 
-        SET customer_name=?,vehicle_no=?,model_id=?,model=?
+        SET customer_name=?,vehicle_no=?,model_id=?,model=?,transmission_type=?,fuel_type=?,manufacture_year=?,chassis_no=?
 		WHERE id=?";
 $q = $db->prepare($sql);
-$q->execute(array($a,$vehicle,$model_id,$model,$id));
+$q->execute(array($a,$vehicle,$model_id,$model,$transmission,$fuel,$year,$chassis_no,$id));
 
 
 

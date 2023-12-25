@@ -75,6 +75,9 @@ include_once("sidebar.php");
 			$bye_date=$row['manufacture_year'];
 			$chassis_no=$row['chassis_no'];
 			$engine_no=$row['engine_no'];
+            $fuel_type=$row['fuel_type'];
+            $transmission_type=$row['transmission_type'];
+            $manufacture_year=$row['manufacture_year'];
 
       $cus_id=$row['customer_id'];
 			
@@ -123,7 +126,7 @@ include_once("sidebar.php");
                                         class="pull-right"><?php echo $row['transmission_type'];?></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>color</b> <a class="pull-right"><?php echo $color;?></a>
+                                    <b>Fuel Type</b> <a class="pull-right"><?php echo $fuel_type;?></a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Engine Number</b> <a class="pull-right"><?php echo $engine_no;?></a>
@@ -394,7 +397,25 @@ include_once("sidebar.php");
                                         </div>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label for="inputEmail" class="col-sm-2 control-label">Chassis No</label>
 
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="chassis_no"
+                                                value="<?php echo $chassis_no ;?>" id="inputEmail"
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputEmail" class="col-sm-2 control-label">Model Year</label>
+
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="year"
+                                                value="<?php echo $manufacture_year ;?>" id="inputEmail"
+                                                required>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
                                         <label for="inputName" class="col-sm-2 control-label">Model</label>
@@ -422,15 +443,50 @@ include_once("sidebar.php");
                                         </div>
                                     </div>
 
+
                                     <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> I agree to <a href="#">Submit</a>
-                                                </label>
-                                            </div>
+                                        <label for="inputName" class="col-sm-2 control-label">Fuel Type</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2" name="fuel" style="width: 100%;"
+                                                autofocus>
+
+
+                                             
+                                                <option 
+                                                    <?php if($fuel_type=='Petrol'){ echo 'selected'; } ?>>Petrol
+                                                </option>
+
+                                                <option 
+                                                    <?php if($fuel_type=='Diesel'){ echo 'selected'; } ?>>Diesel
+                                                </option>
+                                                
+                                            </select>
+
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-2 control-label">Transmission</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2" name="transmission" style="width: 100%;"
+                                                autofocus>
+
+
+                                             
+                                                <option 
+                                                    <?php if($transmission_type=='Auto'){ echo 'selected'; } ?>>Auto
+                                                </option>
+
+                                                <option 
+                                                    <?php if($transmission_type=='Manual'){ echo 'selected'; } ?>>Manual
+                                                </option>
+                                                
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    
                                     <input type="hidden" name="cus_id" value="<?php echo $cus_id; ?>">
                                     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
                                     <div class="form-group">
