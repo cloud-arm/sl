@@ -386,7 +386,7 @@ $q->execute(array($drying,$wid2));
 					  $tot_bill=0;
 					  $job_no=0;
 					  $mechanic_id=0;
-			$result = $db->prepare("SELECT * FROM job WHERE type='active'  ORDER by id DESC LIMIT 17 ");
+			$result = $db->prepare("SELECT * FROM job WHERE type='active'  ORDER by id DESC  ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
