@@ -2,7 +2,7 @@
 session_start();
 include('connect.php');
 $a1 = $_POST['invoice'];
-$ar = $_POST['amount'];
+$pay_amount= $_POST['amount'];
 $type = $_POST['type'];
 $note = $_POST['note'];
 $discount= $_POST['discount'];
@@ -112,9 +112,9 @@ $result1 = $db->prepare("SELECT * FROM mechanic WHERE id='$mechanic_id' ");
 //$mechanic_id=1;
 
 $a=$a-$discount;
-$b = $ar-$a;
+$b = $pay_amount-$a;
 
-$sale_total_ds=$ar-$discount;
+$sale_total_ds=$pay_amount-$discount;
 
 $c = "active";
 $date=date("Y-m-d");
@@ -122,13 +122,13 @@ $time=date('H:i:s');
 
 $credit=0;
 if($a > $sale_total_ds){
-	$credit=$a-$ar;
+	$credit=$a-$pay_amount;
 }
 
 // query
-$sql = "UPDATE  sales SET amount=?,balance=?,action=?,profit=?,labor_cost=?,pay_type=?,date=?,mechanic_id=?,mechanic=?,email=?,plus_km=?,comment=?,time=?,credit=?,credit_left=?,sales_discount=? WHERE invoice_number=?";
+$sql = "UPDATE  sales SET amount=?,balance=?,action=?,profit=?,labor_cost=?,pay_type=?,date=?,mechanic_id=?,mechanic=?,email=?,plus_km=?,comment=?,time=?,credit=?,credit_left=?,sales_discount=?,pay_amount=? WHERE invoice_number=?";
 $ql = $db->prepare($sql);
-$ql->execute(array($a,$b,$c,$profit,$labor_cost,$type,$date,$mechanic_id,$mechanic,$email,$km,$note,$time,$credit,$credit,$discount,$a1));
+$ql->execute(array($a,$b,$c,$profit,$labor_cost,$type,$date,$mechanic_id,$mechanic,$email,$km,$note,$time,$credit,$credit,$discount,$pay_amount,$a1));
 
 $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$a1' ");
 		$result1->bindParam(':userid', $a1);
