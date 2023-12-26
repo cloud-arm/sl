@@ -403,7 +403,7 @@ include_once("sidebar.php");
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="chassis_no"
                                                 value="<?php echo $chassis_no ;?>" id="inputEmail"
-                                                required>
+                                                >
                                         </div>
                                     </div>
 
@@ -413,7 +413,7 @@ include_once("sidebar.php");
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="year"
                                                 value="<?php echo $manufacture_year ;?>" id="inputEmail"
-                                                required>
+                                                >
                                         </div>
                                     </div>
 
