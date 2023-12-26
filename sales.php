@@ -156,7 +156,7 @@ include_once("sidebar.php");
                                             </div>
 
 
-                                          
+
                                             <input type="hidden" name="invoice" value="<?php echo $invo; ?>">
                                             <input class="btn btn-<?php echo $type_color ?>" type="submit"
                                                 value="Submit">
@@ -337,6 +337,7 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                                                 Chq <i class="fa fa-credit-card"></i>
                                             </label>
                                         </div>
+
 
                                         <div class="radio">
                                             <label>
@@ -523,7 +524,7 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
 		}
 		
 		?>
-        
+
                         <form method="post" action="save_bill.php">
                             <div class="form-group">
 
@@ -557,6 +558,23 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                                     </label>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="type" id="optionsRadios2" value="Bank">
+                                    Bank <i class="fa fa-institution"></i>
+                                </label>
+                            </div>
+                            </div>
+
+                            <div class="col-md-6">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="type" id="optionsRadios2" value="Chq">
+                                    CHQ <i class="fa fa-credit-card"></i>
+                                </label>
+                            </div>
+                            </div>
 
                         </div>
 
@@ -588,9 +606,9 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                                 <label>Discount</label>
                             </div>
                             <!-- /btn-group -->
-                            <input type="number" onchange="dis_up()"  class="form-control" name="dis" id="dis"
+                            <input type="number" onchange="dis_up()" class="form-control" name="dis" id="dis"
                                 step=".01">
-                            
+
 
                         </div>
                     </div>
@@ -599,11 +617,11 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                         <div class="form-group">
                             <div class="input-group date">
                                 <div class="input-group-addon">
-                                <label>Payment</label>
+                                    <label>Payment</label>
                                 </div>
                                 <input type="number" class="form-control" id="amount" name="amount" value="" step=".01"
-                                min="0">
-                            
+                                    min="0">
+
                             </div>
                         </div>
                     </div>
@@ -613,11 +631,11 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
                     <div class="col-md-3">
                         <div class="input-group">
                             <!-- /btn-group -->
-                            
+
                             <div class="input-group-btn">
                                 <input type="hidden" class="form-control" name="total" value="<?php echo $total; ?>">
                                 <input type="hidden" class="form-control" name="invoice" value="<?php echo $invo; ?>">
-                                
+
                             </div>
                         </div>
                         <input class="btn btn-info" type="submit" value="Pay and Print">
@@ -639,64 +657,7 @@ $result1 = $db->prepare("SELECT * FROM sales WHERE invoice_number='$invo' ");
 
     <br><br><br>
 
-    <div class="col-md-7">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title">Advance Payment</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                            class="fa fa-times"></i></button>
-                </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <form method="post" action="save_advance.php">
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="type" id="optionsRadios1" value="Cash" checked>
-                                            Cash <i class="fa fa-money"></i>
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="type" id="optionsRadios2" value="Card">
-                                            Card <i class="fa fa-credit-card"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="col-md-7">
-                        <div class="input-group">
-                            <!-- /btn-group -->
-                            <div class="input-group-addon">
-                                <label>Advance amount</label>
-                            </div>
-                            <input type="number" class="form-control" name="amount" value="">
-                            <div class="input-group-btn">
-
-                                <input type="hidden" class="form-control" name="invoice" value="<?php echo $invo; ?>">
-                                <input class="btn btn-info" type="submit" value="save">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+   
     </div>
 
     <?php }	?>
