@@ -85,6 +85,7 @@ $sec = "1";
 
 
 				   <?php
+				   $credit+=$row['credit_left'];
 					$tot+=$row['amount'];
 					$labor+=$row['amount']-$row['labor_cost'];
 				}
@@ -120,40 +121,55 @@ $sec = "1";
 				$ex=$row['sum(amount)'];
 				}
 
-			$result = $db->prepare("SELECT sum(amount) FROM sales WHERE pay_type='Card' and action='active' and date BETWEEN '$d1' AND '$d2'  ");
+
+				$result = $db->prepare("SELECT sum(pay_amount) FROM sales WHERE pay_type='Cash' and action='active' and  date BETWEEN '$d1' AND '$d2'  ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
-				$card_tot1=$row['sum(amount)'];
+				$cash=$row['sum(pay_amount)'];
 				}
 
-			$result = $db->prepare("SELECT sum(advance) FROM sales WHERE advance_type='Card' and  date BETWEEN '$d1' AND '$d2'  ");
+			$result = $db->prepare("SELECT sum(pay_amount) FROM sales WHERE pay_type='Card' and action='active' and  date BETWEEN '$d1' AND '$d2'  ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
-				$card_tot2=$row['sum(advance)'];
+				$card_tot=$row['sum(pay_amount)'];
 				}
 
-			$card_tot=$card_tot2+$card_tot1;
+				$result = $db->prepare("SELECT sum(pay_amount) FROM sales WHERE pay_type='Bank' AND action='active' AND  date BETWEEN '$d1' AND '$d2'  ");
+				$result->bindParam(':userid', $date);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+				$bank_tot=$row['sum(pay_amount)'];
+				}
 
-
-
+				$result = $db->prepare("SELECT sum(pay_amount) FROM sales WHERE pay_type='Chq' and action='active' and  date BETWEEN '$d1' AND '$d2'  ");
+				$result->bindParam(':userid', $date);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+				$chq_tot=$row['sum(pay_amount)'];
+				}
+				
+					
+					
+					
 		$result = $db->prepare("SELECT sum(advance) FROM sales WHERE action='active' and date BETWEEN '$d1' AND '$d2'  ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
 				$advance_x=$row['sum(advance)'];
 				}
-
+					
 		$result = $db->prepare("SELECT sum(advance) FROM sales WHERE  advance_date BETWEEN '$d1' AND '$d2'  ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
 				$advance=$row['sum(advance)'];
 				}
-
-
-	$result1 = $db->prepare("SELECT * FROM hold_amount WHERE date='$d2' ORDER by id DESC limit 0,1 ");
+					
+		$hold_date='';
+		$hold1='';			
+	    $result1 = $db->prepare("SELECT * FROM hold_amount WHERE date='$d2' ORDER by id DESC limit 0,1 ");
 		$result1->bindParam(':userid', $res);
 		$result1->execute();
 		for($i=0; $row1 = $result1->fetch(); $i++){
@@ -166,72 +182,88 @@ $sec = "1";
 		$hold1=$row1['amount'];
 		$hold_date=$row1['date'];
 		}
-					$cash=$tot-$card_tot;
+					
 					$total=$hold1+$advance+$cash-$ex;
 					$total=$total-$advance_x;
-
+					
 					?>
-                </tfoot>
-              </table>
-				<div class="row">
-					 <h3>Total Balance</h3>
-				<div class="col-md-6">
-				<table id="example1" class="table table-bordered table-striped">
-				<thead>
-                <tr>
-					<th>Description</th>
-                  <th>Amount</th>
-                </tr>
-				</thead>
+                        </tfoot>
+                    </table>
 
-					<tr>
-					<th>Bill Total</th>
-                  <th>Rs.<?php echo $tot; ?>.00</th>
-                </tr>
-					<tr>
-					<th>Advance Total</th>
-                  <th>Rs.<?php echo $advance; ?>.00</th>
-                </tr>
+                   
+                    <div class="row">
 
-					<tr>
-					<th>Card Amount Total</th>
-                  <th>Rs.<?php echo $card_tot; ?></th>
-                </tr>
-					<tr>
-					<th>Cash Amount Total</th>
-                  <th>Rs.<?php echo $cash; ?></th>
-                </tr>
-					<tr>
-					<th>Expenses</th>
-                  <th>Rs.<?php echo $ex; ?></th>
-                </tr>
+                        <div class="col-md-6">
+                            <h3>Total Balance</h3>
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
 
-					<tr>
-					<th>Hold Amount (<?php echo $hold_date; ?>)</th>
-                  <th>Rs.<?php echo $hold1; ?>.00</th>
-                </tr>
-					<tr>
-					<th>Total</th>
-                  <th>Rs.<?php echo $total; ?>.00</th>
-                </tr>
-					<tr>
-					<th>-</th>
-                  <th>-</th>
-                </tr>
-					<tr>
-					<th>Hold Amount</th>
-                  <th>Rs.<?php echo $hold; ?>.00</th>
-                </tr>
-					<tr>
-					<th>Balance</th>
-                  <th>Rs.<?php echo $total-$hold; ?>.00</th>
-                </tr>
+                                <tr>
+                                    <th>Bill Total</th>
+                                    <th>Rs.<?php echo $tot; ?>.00</th>
+                                </tr>
+                                <tr>
+                                    <th>Advance Total</th>
+                                    <th>Rs.<?php echo $advance; ?>.00</th>
+                                </tr>
+
+                                <tr>
+                                    <th>Credit</th>
+                                    <th>Rs.<?php echo $credit; ?></th>
+                                </tr>
+
+                                <tr>
+                                    <th>Card</th>
+                                    <th>Rs.<?php echo $card_tot; ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Cash</th>
+                                    <th>Rs.<?php echo $cash; ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Bank</th>
+                                    <th>Rs.<?php echo $bank_tot; ?></th>
+                                </tr>
+                                <tr>
+                                    <th>CHQ</th>
+                                    <th>Rs.<?php echo $chq_tot; ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Expenses</th>
+                                    <th>Rs.<?php echo $ex; ?></th>
+                                </tr>
+
+                                <tr>
+                                    <th>Hold Amount (<?php echo $hold_date; ?>)</th>
+                                    <th>Rs.<?php echo $hold1; ?>.00</th>
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <th>Rs.<?php echo $total; ?>.00</th>
+                                </tr>
+                                <tr>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                                <tr>
+                                    <th>Hold Amount</th>
+                                    <th>Rs.<?php echo $hold; ?>.00</th>
+                                </tr>
+                                <tr>
+                                    <th>Cash Balance</th>
+                                    <th>Rs.<?php echo $total-$hold; ?>.00</th>
+                                </tr>
 
 
 
-					<tfoot>
-					</tfoot>
-					</table>
+                                <tfoot>
+                                </tfoot>
+                            </table>
 
 
             </div>
