@@ -156,17 +156,7 @@ include_once("sidebar.php");
                                             </div>
 
 
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <label>Price</label>
-                                                        </div>
-                                                        <input type="number" class="form-control" name="price"
-                                                            tabindex="2">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                          
                                             <input type="hidden" name="invoice" value="<?php echo $invo; ?>">
                                             <input class="btn btn-<?php echo $type_color ?>" type="submit"
                                                 value="Submit">
