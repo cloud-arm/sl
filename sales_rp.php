@@ -170,9 +170,9 @@ include_once("sidebar.php");
                                 <th></th>
                                 <th>Total </th>
 
-                                <th><?php echo $tot-$labor; ?>.00</th>
-                                <th><?php echo $labor; ?>.00</th>
-                                <th><?php echo $tot; ?>.00</th>
+                                <th><?php echo $tot-$labor; ?></th>
+                                <th><?php echo $labor; ?></th>
+                                <th><?php echo $tot; ?></th>
                                 <th></th>
                             </tr>
 
@@ -271,11 +271,11 @@ include_once("sidebar.php");
 
                                 <tr>
                                     <th>Bill Total</th>
-                                    <th>Rs.<?php echo $tot; ?>.00</th>
+                                    <th>Rs.<?php echo $tot; ?></th>
                                 </tr>
                                 <tr>
                                     <th>Advance Total</th>
-                                    <th>Rs.<?php echo $advance; ?>.00</th>
+                                    <th>Rs.<?php echo $advance; ?></th>
                                 </tr>
 
                                 <tr>
@@ -306,11 +306,11 @@ include_once("sidebar.php");
 
                                 <tr>
                                     <th>Hold Amount (<?php echo $hold_date; ?>)</th>
-                                    <th>Rs.<?php echo $hold1; ?>.00</th>
+                                    <th>Rs.<?php echo $hold1; ?></th>
                                 </tr>
                                 <tr>
                                     <th>Total</th>
-                                    <th>Rs.<?php echo $total; ?>.00</th>
+                                    <th>Rs.<?php echo $total; ?></th>
                                 </tr>
                                 <tr>
                                     <th>-</th>
@@ -318,11 +318,11 @@ include_once("sidebar.php");
                                 </tr>
                                 <tr>
                                     <th>Hold Amount</th>
-                                    <th>Rs.<?php echo $hold; ?>.00</th>
+                                    <th>Rs.<?php echo $hold; ?></th>
                                 </tr>
                                 <tr>
                                     <th>Cash Balance</th>
-                                    <th>Rs.<?php echo $total-$hold; ?>.00</th>
+                                    <th>Rs.<?php echo $total-$hold; ?></th>
                                 </tr>
 
 
