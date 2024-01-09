@@ -61,7 +61,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: white;
 }
 
-.modal-body {padding: 2px 16px;background-color: #202020;}
+.modal-body {padding: 2px 16px;background-color: #202020; color: #EAEAEA;}
 
 .modal-footer {
   padding: 2px 16px;
