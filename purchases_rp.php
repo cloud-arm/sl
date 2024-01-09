@@ -107,6 +107,7 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
                   <th>Date</th>
 				  <th>amount</th>
 				<th>Payment</th>
+        <th>Balance</th>
 				<th>#</th>
                   
                 
@@ -134,7 +135,8 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
           <td><?php echo $row['name']  ?></td>
                   <td><?php echo $row['date'];?></td>
                   <td><?php echo $row['amount'];?></td>
-				  <td><?php echo $row['pay_type'];?></td>
+				  <td><?php echo $row['pay_amount'];?></td>
+          <td><?php echo $row['amount']-$row['pay_amount']  ?></td>
 				  <td><a href="bill.php?id=<?php echo $id;?>" class="btn btn-primary btn-xs"><b>Print</b></a></td>
             
 				  
