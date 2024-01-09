@@ -3,11 +3,11 @@ session_start();
 include('connect.php');
 
 
-$result = $db->prepare("SELECT * FROM purchases ");
+$result = $db->prepare("SELECT * FROM supply_payment ");
 $result->bindParam(':userid', $d);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
-$id=$row['transaction_id'];
+$id=$row['id'];
 	
 	$date=$row['date'];
     $split = explode("-", $date);
@@ -25,9 +25,9 @@ $id=$row['transaction_id'];
 	
 	
 	
-	$sql = "UPDATE purchases 
+	$sql = "UPDATE supply_payment 
         SET date=? 
-		WHERE transaction_id=?";
+		WHERE id=?";
 $q = $db->prepare($sql);
 $q->execute(array($f,$id));
 	
