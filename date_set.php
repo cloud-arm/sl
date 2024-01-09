@@ -24,7 +24,7 @@ $id=$row['transaction_id'];
 	
 	
 			$f=$y."-".$m."-".$d;
-			echo $f;
+			echo 'Date: '.$f;
 	
 	echo "<br>";
 	
