@@ -103,6 +103,7 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
                 <tr>
                   <th>Transaction Id</th>
 				 <th>Invoice No</th>
+         <th>Suplier</th>
                   <th>Date</th>
 				  <th>amount</th>
 				<th>Payment</th>
@@ -130,6 +131,7 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
                 <tr>
 				  <td><?php echo $row['transaction_id'];?></td>
 				  <td><?php echo $row['invoice_no'];?></td>
+          <td><?php echo $row['name']  ?></td>
                   <td><?php echo $row['date'];?></td>
                   <td><?php echo $row['amount'];?></td>
 				  <td><?php echo $row['pay_type'];?></td>
