@@ -3,16 +3,16 @@ session_start();
 include('connect.php');
 
 
-$result = $db->prepare("SELECT * FROM csv ");
+$result = $db->prepare("SELECT * FROM purchases ");
 $result->bindParam(':userid', $d);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
-$id=$row['id'];
+$id=$row['transaction_id'];
 	
 	$date=$row['date'];
-    $split = explode("/", $date);
-            $m= $split[0];
-			$d= $split[1];
+    $split = explode("-", $date);
+            $d= $split[0];
+			$m= $split[1];
 			$y= $split[2];
 			
 	if($m<10){
@@ -30,13 +30,13 @@ $id=$row['id'];
 	
 	
 	
-	$sql = "UPDATE csv 
+	$sql = "UPDATE purchases 
         SET date=? 
-		WHERE id=?";
+		WHERE transaction_id=?";
 $q = $db->prepare($sql);
 $q->execute(array($f,$id));
 	
 	
 				}
-exit;
+
 ?>
