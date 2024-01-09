@@ -15,12 +15,7 @@ $id=$row['transaction_id'];
 			$m= $split[1];
 			$y= $split[2];
 			
-	if($m<10){
-		$m="0".$m;
-	}
-	if($d<10){
-		$d="0".$d;
-	}
+
 	
 	
 			$f=$y."-".$m."-".$d;
