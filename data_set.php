@@ -14,9 +14,9 @@ $result1 = $db->prepare("SELECT * FROM supplier ");
 	echo $cus.'__'.$invo.'<br>';	
 
 			
-$sql = "UPDATE purchases 
-        SET supplier_id=? 
-		WHERE suplier_invoice=?";
+$sql = "UPDATE supply_payment 
+        SET supply_id=? , amount=pay_amount
+		WHERE old_sup_id=?";
 $q = $db->prepare($sql);
 $q->execute(array($invo,$cus));		
 		
